@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Draga bebito,</h1>
+    <h3>(apasa pe inima)</h3>
+    <div class="section" id="heart">
+        <div class="left"><img src="assets/Heart_corazónLEFT.svg.png" alt=""></div>
+        <div class="question">
+            <p>Do you want to be my Valentine?</p>
+            <div class="btns"> <button id="yes">YES</button>
+                <button id="no">NO</button>
+            </div>
+        </div>
+        <div class="right"><img src="assets/Heart_corazónRIGHT.svg.png" alt=""></div>
+    </div>
+
+    <video autoplay muted loop id="background-video">
+        <source src="assets/vecteezy_lot-of-red-heart-shape-animation-particles-on-black_23368482.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+
+    <script>
+        let heart = document.getElementById('heart');
+        let left = document.querySelector('.left');
+        let right = document.querySelector('.right');
+
+        let noButton = document.querySelector('#no');
+        let yesButton = document.querySelector('#yes');
+        let scaleFactor = 1.2;
+
+        heart.addEventListener('click', function() {
+            left.classList.add('move-left');
+            right.classList.add('move-right');
+        });
+
+        noButton.addEventListener('click', function(){
+            let currentScale = parseFloat(yesButton.style.transform.replace('scale(', '').replace(')', '')) || 1;
+            let newScale = currentScale * scaleFactor; 
+
+            yesButton.style.transform = `scale(${newScale})`;
+            
+        });
+
+        yesButton.addEventListener("click", function() {
+            window.location.href = "mailto:cosminnistor23@gmail.com?subject=Valentine&body=Te iubesc! ❤️";
+        });
+
+
+
+    </script>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    // Inițializează EmailJS
+    emailjs.init("UQjx1pY67VAzEJGMR"); // Înlocuiește cu User ID-ul tău
+
+    document.getElementById("yes").addEventListener("click", function() {
+        emailjs.send("service_pvzvc09", "template_okj03pk", {
+            to_email: "cosminnistor23@gmail.com", // Înlocuiește cu emailul ei
+            from_name: "Cosmin",
+            message: "Te iubesc mult! ❤️"
+        }).then(function(response) {
+            alert("VERIFICA-TI MAILUL ❤️");
+        }, function(error) {
+            alert("Eroare la trimitere: " + error.text);
+        });
+    });
+</script>
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "UQjx1pY67VAzEJGMR",
+      });
+   })();
+</script>
+
+</body>
+</html>

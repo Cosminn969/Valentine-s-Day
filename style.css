@@ -1,0 +1,104 @@
+html{
+    overflow: hidden;
+}
+
+body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #fff;
+}
+
+h1{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+h3{
+    position: absolute;
+    text-align: center;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    margin-top: 300px;
+}
+
+.section div img{
+    height: 300px;
+}
+
+.left, .right {
+    transition: transform 1.8s ease-in-out;
+    z-index: 2;
+}
+
+
+.move-left {
+    transform: translateX(-150vw);
+}
+
+.move-right {
+    transform: translateX(150vw);
+}
+
+.question{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btns{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+p{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button{
+    width: 50px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.5);
+}
+
+#yes{
+    background-color: green;
+}
+
+#no{
+    background-color: red;
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1; /* Asigură că este în spate */
+}
+
